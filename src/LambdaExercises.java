@@ -26,6 +26,7 @@ interface Divisor {
 
 public class LambdaExercises {
     public static void main(String[] args) {
+
         // 1 exemplo
         Soma soma = (a, b) -> a + b;
         System.out.println(soma.soma(5, 3));  // Resultado: 8
@@ -77,8 +78,15 @@ public class LambdaExercises {
             System.out.println(e.getMessage());
         }
 
+        // Stream pode usar lambda, recursos de programação funcional
+        List<String> nomesT = Arrays.asList("Lucas", "Maria", "João", "Ana");
+        nomesT.stream()
+                .sorted()
+                .limit(3)
+                .filter(n -> n.startsWith("J"))
+                .map(String::toUpperCase)
+                .forEach(System.out::println);
+
     }
-
-
 
 }
